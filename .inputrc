@@ -1,0 +1,9 @@
+set editing-mode vi
+# Remap ESC to use my double ';' keypress to toggle insert or movement
+# mode.
+$if mode=vi
+  set keymap vi-command
+  ";;": vi-insertion-mode
+  set keymap vi-insert
+  ";;": vi-movement-mode
+$endif
