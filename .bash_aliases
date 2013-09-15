@@ -1,0 +1,40 @@
+# ~/.aliases: Allan C. Lloyds <acl@acl.im>
+# vim: set et ff=unix ft=sh fdm=marker ts=2 sw=2 sts=2 tw=0:
+# see ~/.profile for ksh/bash/zsh startup file loading order
+
+# shared aliases for ksh/bash/zsh
+
+ls --color >/dev/null 2>&1
+if [ "$?" -eq "0" ]; then
+  alias ls="ls --color"
+fi
+alias ll="ls -lFah"
+
+if [ `uname -s` = "OpenBSD" ]; then
+  alias can-has="pkg_add"
+else
+  alias can-has="apt-get"
+fi
+
+if [ -x "${HOME}/bin/vim" ]; then
+  alias vi=vim
+fi
+
+alias quit=exit
+alias cls=clear
+alias logout=exit
+alias bye=exit
+alias p='ps -l'
+alias j=jobs
+alias o='fg %-'
+#alias rm='rm -I'
+
+alias screen='screen -U'
+alias bungle='bundle'
+
+alias bx='bundle exec'
+
+#MY ALIASES
+alias cd..='cd ..'
+alias tas="tmux attach-session"
+alias cpwd="pwd | pbcopy"
