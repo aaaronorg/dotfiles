@@ -11,6 +11,11 @@
 # If not running interactively, don't do anything
 if [[ -n "$PS1" ]] ; then
 
+  if [ -e ~/.localpaths ]; then
+    #import localpaths for environment specific paths
+    . ~/.localpaths
+  fi
+
   # don't put duplicate lines in the history. See bash(1) for more options
   # don't overwrite GNU Midnight Commander's setting of `ignorespace'.
   HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
@@ -71,18 +76,20 @@ _dir_chomp () {
     echo "${p[*]}"
 }
 
+
   if [ "$color_prompt" = yes ]; then
-      PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]@\[\033[00m\]:\[\033[01;34m\]$(_dir_chomp "$(pwd)" 20)\[\033[00m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[0;32m\]\u@\[\033[48;5;124m\]\h\[\033[00m\]:\[\033[0;34m\]$(_dir_chomp "$(pwd)" 20)$(__git_ps1 " \[\033[0;31m\](%s)") \[\033[0;36m\]\$ $(tput sgr0)'
   else
       #PS1='${debian_chroot:+($debian_chroot)}@:\w\$ '
       PS1='${debian_chroot:+($debian_chroot)}@:$(_dir_chomp "$(pwd)" 20)\$ '
   fi
   unset color_prompt force_color_prompt
 
-  # Coling's prompt
+  # Coling's prompt need to combine this with the above to implement the directory chomp function
   # if [ "$(type -t __git_ps1)" = "function" ]; then
   #   export PS1="$(echo -n "$PS1" | sed "s|\\\W\]|\\\W\$(type __git_ps1 >/dev/null  2>\&1 \&\& __git_ps1 \" (%s)\")\]|")"
   # fi
+
 
   # If this is an xterm set the title to user@host:dir
   case "$TERM" in
@@ -94,21 +101,34 @@ _dir_chomp () {
   esac
 
   # enable color support of ls and also add handy aliases
-  if [ -x /usr/bin/dircolors ]; then
-      test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-      alias ls='ls --color=auto'
-      #alias dir='dir --color=auto'
-      #alias vdir='vdir --color=auto'
+  # if [ -x /usr/bin/dircolors ]; then
+  #     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+  #     alias ls='ls --color=auto'
+  #     #alias dir='dir --color=auto'
+  #     #alias vdir='vdir --color=auto'
 
-      alias grep='grep --color=auto'
-      alias fgrep='fgrep --color=auto'
-      alias egrep='egrep --color=auto'
-  fi
+  #     alias grep='grep --color=auto'
+  #     alias fgrep='fgrep --color=auto'
+  #     alias egrep='egrep --color=auto'
+  # fi
 
   # some more ls aliases
   #alias ll='ls -l'
   #alias la='ls -A'
   #alias l='ls -CF'
+
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
 
   # Alias definitions.
   # You may want to put all your additions into a separate file like

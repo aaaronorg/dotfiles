@@ -4,11 +4,11 @@
 
 # shared aliases for ksh/bash/zsh
 
-ls --color >/dev/null 2>&1
-if [ "$?" -eq "0" ]; then
-  alias ls="ls --color"
-fi
-alias ll="ls -lFah"
+# ls --color >/dev/null 2>&1
+# if [ "$?" -eq "0" ]; then
+#   alias ls="ls --color"
+# fi
+# alias ll="ls -lFah"
 
 if [ `uname -s` = "OpenBSD" ]; then
   alias can-has="pkg_add"
