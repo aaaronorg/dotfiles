@@ -154,6 +154,12 @@ fi
   export PYTHONSTARTUP=~/.pythonstartup
 fi
 
+#add osx style pbcopy and pbpaste
+if ! which pbcopy >/dev/null && which xsel >/dev/null; then
+  alias pbcopy='xsel --clipboard --input'
+  alias pbpaste='xsel --clipboard --output'
+fi
+
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 
