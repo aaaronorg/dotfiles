@@ -165,3 +165,110 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 export __CF_USER_TEXT_ENCODING=0x1F5
 . $HOME/.bashrc.load
+
+#Mike Evans aliases
+
+alias m=less
+alias l='ls -AF --color'
+alias ll='ls -lAF --color'
+alias llm='ls -AlF --color'
+alias lm='ls -xAF --color'
+alias lr='ls -xARF --color'
+alias lrm='ls -xARF --color'
+alias lld='ls -lAF --color | grep ^d'
+alias f='/usr/bin/find . -name $1'
+alias p='pwd'
+alias ..=up
+alias q='clear'
+alias pu='ps -u $LOGNAME' 
+alias h=history
+alias pt="ps -ef | grep"
+function cl { 
+  if [ $# = 0 ]; then
+    cd
+    ls -AF --color
+    export PWD=`pwd`
+  elif [ -d "$*" ]; then
+    cd "$*"
+    ls -AF --color
+    export PWD=`pwd`
+  else
+    echo $1: directory not found
+  fi
+}
+function up {
+  cd ..
+  pwd
+  ls -AF --color
+  export PWD=`pwd`
+}
+alias b='cd -'
+alias go='pushd $1; ls -AF; PWD=`pwd`; export PWD'
+alias og='popd +$1; ls -AF; PWD=`pwd`; export PWD'
+function gf {
+    grep -sn $1 * | grep -v .svn*
+}
+function ggf {
+    grep -sn $1 */* | grep -v .svn*
+}
+function gggf {
+    grep -sn $1 */*/* | grep -v .svn*
+}
+function gfa {
+    grep -sn $1 .* * 
+}
+alias g='grep -sn'
+#k is to set directory
+alias k1='k1="$PWD"; ls -F'
+alias k2='k2="$PWD"; ls -F'
+alias k3='k3="$PWD"; ls -F'
+alias k4='k4="$PWD"; ls -F'
+alias k5='k5="$PWD"; ls -F'
+alias k6='k6="$PWD"; ls -F'
+alias k7='k7="$PWD"; ls -F'
+alias k8='k8="$PWD"; ls -F'
+alias k9='k9="$PWD"; ls -F'
+alias mark='M="$PWD"; export M'
+#j is to 'jump' to directory index N
+alias j1='[ -d "$k1" ] && cd "$k1";p;l'
+alias j2='[ -d "$k2" ] && cd "$k2";p;l'
+alias j3='[ -d "$k3" ] && cd "$k3";p;l'
+alias j4='[ -d "$k4" ] && cd "$k4";p;l'
+alias j5='[ -d "$k5" ] && cd "$k5";p;l'
+alias j6='[ -d "$k6" ] && cd "$k6";p;l'
+alias j7='[ -d "$k7" ] && cd "$k7";p;l'
+alias j8='[ -d "$k8" ] && cd "$k8";p;l'
+alias j9='[ -d "$k9" ] && cd "$k9";p;l'
+#print index N
+alias ek1='echo k1: $k1'
+alias ek2='echo k2: $k2'
+alias ek3='echo k3: $k3'
+alias ek4='echo k4: $k4'
+alias ek5='echo k5: $k5'
+alias ek6='echo k6: $k6'
+alias ek7='echo k7: $k7'
+alias ek8='echo k8: $k8'
+alias ek9='echo k9: $k9'
+#list contents of directory referenced in index N
+alias lk1='ek1;l $k1'
+alias lk2='ek2;l $k2'
+alias lk3='ek3;l $k3'
+alias lk4='ek4;l $k4'
+alias lk5='ek5;l $k5'
+alias lk6='ek6;l $k6'
+alias lk7='ek7;l $k7'
+alias lk8='ek8;l $k8'
+alias lk9='ek9;l $k9'
+alias kk='(ek1);(ek2);(ek3);(ek4);(ek5);(ek6);(ek7);(ek8);(ek9)'
+alias d='date +%a" "%b" "%e'
+alias t='date +%H:%M:%S'
+alias cpm='cp \!* $M'
+alias mvm='mv \!* $M'
+alias gom='cl $M'
+alias lnm='ln -s $M/$1 .'
+alias lsm='p;l $M'
+alias difo='difforig'
+alias ph='export PATH=$PATH:`pwd`'
+function keep {
+    mv $1 $1.keep
+}
