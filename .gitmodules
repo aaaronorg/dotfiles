@@ -1,6 +1,6 @@
 [submodule ".vim/bundle/command-t"]
   path = .vim/bundle/command-t
-  url = git://git.wincent.com/command-t.git
+  url = https://github.com/wincent/Command-T.git
 [submodule ".vim/bundle/vim-rooter"]
   path = .vim/bundle/vim-rooter
   url = https://github.com/airblade/vim-rooter.git
@@ -112,3 +112,15 @@
 [submodule ".vim/bundle/vimux"]
   path = .vim/bundle/vimux
   url = https://github.com/benmills/vimux.git
+[submodule ".vim/bundle/nerdtree"]
+  path = .vim/bundle/nerdtree
+  url = https://github.com/scrooloose/nerdtree.git
+[submodule ".vim/bundle/splice"]
+  path = .vim/bundle/splice
+  url = https://github.com/sjl/splice.vim.git
+[submodule ".vim/bundle/vim-commentary"]
+  path = .vim/bundle/vim-commentary
+  url = https://github.com/tpope/vim-commentary.git
+[submodule ".vim/bundle/vim-statline"]
+  path = .vim/bundle/vim-statline
+  url = https://github.com/millermedeiros/vim-statline.git
