@@ -65,6 +65,12 @@ end
 silent! filetype off
 silent! call pathogen#runtime_append_all_bundles()
 silent! call pathogen#helptags()
+"set nocp
+" set rtp+=/path/to/rtp/that/included/pathogen/vim " if needed
+set rtp+=~/.dotfiles/.vim/autoload/
+call pathogen#infect()
+syntax on
+filetype plugin indent on
 
 if isdirectory(expand("~/.vim/doc"))
   helptags ~/.vim/doc
@@ -282,7 +288,18 @@ silent! map <leader>. :buffers<CR>:buffer<Space>
 silent! nmap <unique> <silent> <Leader>b :BufExplorer<CR>
 
 " Syntastic plugin: https://github.com/scrooloose/syntastic
-silent! let g:syntastic_enable_signs=1
+let g:syntastic_check_on_open=1
+let g:syntastic_echo_current_error=1
+let g:syntastic_enable_signs=1
+let g:syntastic_enable_balloons = 1
+let g:syntastic_auto_jump=1
+let g:syntastic_loc_list_height=5
+let g:syntastic_javascript_checkers = ['jslint']
+let g:syntastic_html_checkers = ['w3']
+let g:syntastic_java_checkers = ['javac']
+let g:syntastic_css_checkers = ['csslint']
+let g:syntastic_json_checkers = ['jsonlint']
+let g:syntastic_xml_checkers = ['xmllint']
 
 " Vim-Taglist plugin: http://vim-taglist.sourceforge.net/
 silent! let Tlist_Inc_Winwidth = 0
