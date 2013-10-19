@@ -464,7 +464,11 @@ if $TMUX == ''
   set clipboard+=unnamed
 endif
 
-vmap ` :!pbcopy<BAR>pbpaste<CR>
+"enable mouse scrolling
+set mouse=a
+
+"copy selected lines to system clipboard
+vmap ` :y+<CR>
 
 "yank all lines to clipboard don't move cursor
 "http://stackoverflow.com/a/1620030
