@@ -273,3 +273,16 @@ alias ph='export PATH=$PATH:`pwd`'
 function keep {
     mv $1 $1.keep
 }
+
+#Clean Whitespace
+whitespace() {
+    perl -pi -e 's/\t/  /g;s/ +$//;' $1
+}
+alias ws=whitespace
+#find in current pwd
+grepwd() {
+  find $1 -type f -exec grep -ni $2 {} +
+}
+
+# Patched by tribalogic-init
+. /Users/aaaronorg/Development/Tribalogic/trunk/config/setup/client/scripts/tl-aliases
