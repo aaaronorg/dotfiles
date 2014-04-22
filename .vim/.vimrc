@@ -476,8 +476,10 @@ vmap ` :y+<CR>
 "http://stackoverflow.com/a/1620030
 map <silent> <Leader>cb :%y+<CR>
 
-":hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+:hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
 ":hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
 :nnoremap <Leader>c :set cursorline!<CR>
+
+:nnoremap <Leader>cc :set cursorcolumn!<CR>
 
 :runtime macros/matchit.vim
