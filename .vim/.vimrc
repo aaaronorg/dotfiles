@@ -361,11 +361,11 @@ end
 """ Tweaks from: http://jetpackweb.com/blog/2010/02/15/vim-tips-for-ruby/
 
   " Bind control-l to hashrocket
-  imap <C-l> <Space>=><Space>
+  "imap <C-l> <Space>=><Space>
 
   " Convert word into ruby symbol
-  imap <C-k> <C-o>b:<Esc>Ea
-  nmap <C-k> lbi:<Esc>E
+  "imap <C-k> <C-o>b:<Esc>Ea
+  "nmap <C-k> lbi:<Esc>E
 
 """ Tweaks from: https://github.com/airblade/dotvim/blob/master/vimrc
 
