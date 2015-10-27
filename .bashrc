@@ -295,6 +295,15 @@ alias ws=whitespace
 grepwd() {
   find $1 -type f -exec grep -ni $2 {} +
 }
-
+#http://unix.stackexchange.com/questions/20410/how-do-i-grep-without-leading-whitespaces
+ggrep() {
+  grep -niR --exclude *.min --color=always "$@" | sed 's/: \+/````/'| column -s '````' -t
+}
+#set default Editor
+export EDITOR=vim
 # Patched by tribalogic-init
-. /Users/aaaronorg/Development/Tribalogic/trunk/config/setup/client/scripts/tl-aliases
+. /Users/aaaronorg/Development/Tribalogic/config/setup/client/scripts/tl-aliases
+
+#add services to omnifocus environment variables
+export HIGHRISE_HOST='https://sitefinder.highrisehq.com'
+export HIGHRISE_USER='86348df5571aa8e25b9e2d1d3b32249f'
