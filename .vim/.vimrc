@@ -475,11 +475,25 @@ endif
 set mouse=a
 
 "copy selected lines to system clipboard
-vmap ` :y+<CR>
+" vmap ` :y+<CR>
+
+" copy visual selection to clipboard
+vmap ` "*y
 
 "yank all lines to clipboard don't move cursor
 "http://stackoverflow.com/a/1620030
 map <silent> <Leader>cb :%y+<CR>
+
+if &term =~ '^screen'
+    " tmux will send xterm-style keys when its xterm-keys option is on
+    execute "set <xUp>=\e[1;*A"
+    execute "set <xDown>=\e[1;*B"
+    execute "set <xRight>=\e[1;*C"
+    execute "set <xLeft>=\e[1;*D"
+endif
+
+" remap increase/decrease numbers to avoid conflict with Screen/Tmux mappings
+:nnoremap <A-a> <C-a>
 
 :hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
 ":hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
@@ -487,4 +501,29 @@ map <silent> <Leader>cb :%y+<CR>
 
 :nnoremap <Leader>cc :set cursorcolumn!<CR>
 
+" custom emmet/zencoding snippets
+" let g:user_emmet_settings = webapi#json#decode(join(readfile(expand('~/.snippets_custom.json')), "\n"))
+
+"set shell=/bin/bash\ -i
+
 :runtime macros/matchit.vim
+
+"Start git commits on 1st line
+"http://vim.wikia.com/wiki/Always_start_on_first_line_of_git_commit_message
+autocmd FileType gitcommit call setpos('.', [0, 1, 1, 0])
+
+"Moving around through wrapped lines
+vmap <D-j> gj
+vmap <D-k> gk
+vmap <D-4> g$
+vmap <D-6> g^
+vmap <D-0> g^
+nmap <D-j> gj
+nmap <D-k> gk
+nmap <D-4> g$
+nmap <D-6> g^
+nmap <D-0> g^
+
+"Set ':Wrap' to softwrap
+command! -nargs=* Wrap set wrap linebreak nolist
+command! -nargs=* NoWrap set nowrap nolinebreak list
