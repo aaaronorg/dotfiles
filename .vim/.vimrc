@@ -91,7 +91,7 @@ if has('autocmd') && exists(':function')
   function! ColorSchemeOverRides()
 
     if has('gui_running')
-      hi MatchParen      guifg=reverse     guibg=#ff01f0    gui=NONE
+      hi MatchParen      guifg=black     guibg=#ff01f0    gui=NONE
       hi Search          guifg=NONE    guibg=NONE   gui=reverse
       hi IncSearch       guifg=NONE    guibg=NONE   gui=reverse
       hi Todo            guifg=#ff0000    guibg=NONE   gui=underline
