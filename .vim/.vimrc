@@ -14,7 +14,8 @@
 
 
 set nocompatible
-inoremap jj <Esc>
+" conflicts with Nerdtree setting
+" inoremap jj <Esc>
 
 if exists(':let')
   nnoremap ,; ,
