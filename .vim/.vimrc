@@ -451,6 +451,10 @@ map <Leader>ev :vnew <C-R>=expand("%:p:h") . '/'<CR>
   let NERDTreeIgnore=['\.rbc$', '\~$']
   map <Leader>n :NERDTreeToggle<CR>
 
+  let g:NERDTreeWinSize = 40
+
+  let NERDTreeMapJumpNextSibling='y'
+  let NERDTreeMapJumpPrevSibling='t'
   " Open NerdTree drawer with ctrl \
   "map <silent> <C-\> :NERDTreeToggle %:p:h<CR>
 
