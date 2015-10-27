@@ -275,6 +275,17 @@ function keep {
     mv $1 $1.keep
 }
 
+#http://askubuntu.com/a/339925
+#http://unix.stackexchange.com/questions/1288/preserve-bash-history-in-multiple-terminal-windows
+# avoid duplicates..
+export HISTCONTROL=ignoredups:erasedups
+
+# append history entries..
+shopt -s histappend
+
+# After each command, save and reload history
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+
 #Clean Whitespace
 whitespace() {
     perl -pi -e 's/\t/  /g;s/ +$//;' $1
