@@ -38,3 +38,4 @@ alias bx='bundle exec'
 alias cd..='cd ..'
 alias tas="tmux attach-session"
 alias cpwd="pwd | pbcopy"
+alias rareport='ssh -t -t brent.tribalogic.net -C "sudo -u csuk ssh -t -t -x watership.tribalogic.net -C /home/csuk/online/codebase/code/Tools/Booking/CancelledBookings.php"'
