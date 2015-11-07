@@ -20,6 +20,10 @@ def toggle_dot_dev(url):
         url = url + '.dev'
     return url
 
+# Fix for Safari
+lastchar = myurl[-1:]
+if lastchar != "/":
+    myurl = myurl + '/'
 
 # get from 'http' to the domain end (to 3rd '/')
 domainend = find_nth_overlapping(myurl, "/", 3)
