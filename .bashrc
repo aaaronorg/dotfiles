@@ -78,6 +78,10 @@ _dir_chomp () {
 
 . /usr/local/etc/bash_completion
 
+  if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion
+  fi
+
   if [ "$color_prompt" = yes ]; then
     #PS1='${debian_chroot:+($debian_chroot)}\[\033[0;32m\]\u@\[\033[48;5;124m\]\h\[\033[00m\]:\[\033[0;34m\]$(_dir_chomp "$(pwd)" 20)$(__git_ps1 " \[\033[0;31m\](%s)") \[\033[0;36m\]\$ $(tput sgr0)'
     PS1='${debian_chroot:+($debian_chroot)}\[\033[0;32m\]\u@\[\033[48;5;124m\]\h\[\033[00m\]:\[\033[0;34m\]$(_dir_chomp "$(pwd)" 20)$(__git_ps1 " \[\033[0;31m\](%s)") \[\033[0;36m\]\$ \[\033[00m\]'
